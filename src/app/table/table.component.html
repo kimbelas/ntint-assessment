@@ -1,0 +1,160 @@
+<div class="d-flex flex-row mb-3">
+  <form [formGroup]="tableForm">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      (matSortChange)="sortData($event)"
+    >
+      <ng-container matColumnDef="rowNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          {{ row.rowNumber }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>
+          First Name
+          <button (click)="sortByColumn('firstName')" mat-icon-button>
+            <mat-icon class="icon-header">arrow_upward</mat-icon>
+          </button>
+          <button (click)="sortByColumn('firstName', true)" mat-icon-button>
+            <mat-icon class="icon-header">arrow_downward</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <div [formGroup]="getRow(i)">
+            <input
+              formControlName="firstName"
+              placeholder="First Name"
+              [class.invalid]="
+                getRow(i).controls['firstName'].invalid &&
+                getRow(i).controls['firstName'].touched
+              "
+            />
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>
+          Last Name
+          <button (click)="sortByColumn('lastName')" mat-icon-button>
+            <mat-icon class="icon-header">arrow_upward</mat-icon>
+          </button>
+          <button (click)="sortByColumn('lastName', true)" mat-icon-button>
+            <mat-icon class="icon-header">arrow_downward</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <div [formGroup]="getRow(i)">
+            <input
+              formControlName="lastName"
+              placeholder="Last Name"
+              [class.invalid]="
+                getRow(i).controls['lastName'].invalid &&
+                getRow(i).controls['lastName'].touched
+              "
+            />
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dropdown">
+        <th mat-header-cell *matHeaderCellDef>
+          Dropdown
+          <button (click)="sortByColumn('dropdown')" mat-icon-button>
+            <mat-icon class="icon-header">arrow_upward</mat-icon>
+          </button>
+          <button (click)="sortByColumn('dropdown', true)" mat-icon-button>
+            <mat-icon class="icon-header">arrow_downward</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <div [formGroup]="getRow(i)">
+            <mat-select formControlName="dropdown">
+              <mat-option
+                *ngFor="let option of ['One', 'Two', 'Three']"
+                [value]="option"
+              >
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="upDown">
+        <th mat-header-cell *matHeaderCellDef>Up/Down</th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <button (click)="moveRowUp(i)" class="btn-icon">
+            <mat-icon>arrow_upward</mat-icon>
+          </button>
+          <button (click)="moveRowDown(i)" class="btn-icon">
+            <mat-icon>arrow_downward</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row; let i = index">
+          <button
+            mat-button
+            (click)="addRow(i)"
+            [disabled]="isEditing && editingRowIndex !== i"
+            color="accent"
+            class="action-btn-add"
+          >
+            Add
+          </button>
+
+          <button
+            *ngIf="row.isNewRow || isEditing"
+            mat-button
+            (click)="updateRow(i)"
+            [disabled]="!isEditing"
+            color="primary"
+            class="action-btn-edit"
+          >
+            Save
+          </button>
+
+          <button
+            *ngIf="!row.isNewRow && !isEditing"
+            mat-button
+            (click)="enableEdit(i)"
+            [disabled]="isEditing && editingRowIndex !== i"
+            color="primary"
+            class="action-btn-edit"
+          >
+            Edit
+          </button>
+
+          <button
+            mat-button
+            (click)="deleteRow(i)"
+            [disabled]="isEditing && editingRowIndex !== i"
+            color="warn"
+            class="action-btn-delete"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="saveAfterDelete()"
+      *ngIf="deleteTriggered"
+    >
+      Save Changes
+    </button>
+  </form>
+</div>

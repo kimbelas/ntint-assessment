@@ -1,0 +1,250 @@
+<mat-tab-group>
+  <mat-tab label="Clock Sync Workflow Diagram">
+    <div class="d-flex flex-row">
+      <div class="workflow-diagram">
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>User Actions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Start Clock</li>
+                <li>Increment Time</li>
+                <li>Decrement Time</li>
+                <li>Reset Time</li>
+                <li>Update System Time</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Clock Service</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Fetches system time</li>
+                <li>Manages time adjustment</li>
+                <li>Syncs with system time</li>
+                <li>Handles time increment</li>
+                <li>Resets adjusted time</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Time Management</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Time adjusted or system time</li>
+                <li>Displays current time in digital and analog formats</li>
+                <li>Updates time every second</li>
+                <li>Checks system time vs display time on page reload</li>
+                <li>Stops reload if system and display time do not match</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Clock Components</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Analog Clock: Rotates hands based on time</li>
+                <li>Digital Clock: Displays time in HH:mm:ss format</li>
+                <li>Settings: Adjusts time increment or decrement</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Clock Service Updates</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Provides real-time updates to components</li>
+                <li>
+                  Ensures synchronization between analog and digital clocks
+                </li>
+                <li>Handles time adjustment via settings component</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Additional Features & Report</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>
+                  Includes Angular components, services, and RxJS shared service
+                </li>
+                <li>Uses Observables for time updates and synchronization</li>
+                <li>
+                  Includes a one or two-page report detailing design and
+                  workflow diagram
+                </li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Table Workflow Diagram">
+    <div class="d-flex flex-row">
+      <div class="workflow-diagram">
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>User Actions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Add row</li>
+                <li>Edit row</li>
+                <li>Delete row</li>
+                <li>Save row</li>
+                <li>Move row up/down</li>
+                <li>Sort column</li>
+                <li>Click "Add" to add a new row below the particular row</li>
+                <li>
+                  Use the "Up/Down" column to position the row up and down
+                </li>
+                <li>Validate form after deletion using form arrays</li>
+                <li>Highlight invalid forms when validation fails</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Table Component UI</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Shows rows from data source</li>
+                <li>Enables/disables editing controls</li>
+                <li>Displays sorting, row numbering</li>
+                <li>Uses form arrays to manage rows</li>
+                <li>
+                  Uses state management (like NGXS or NGRX) for handling data
+                </li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Form Controls & State</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Generates form controls per row</li>
+                <li>Toggles validation</li>
+                <li>Marks controls as touched/untouched</li>
+                <li>Updates row numbers</li>
+                <li>
+                  Validates and highlights invalid forms using form arrays
+                </li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title
+                >Table State via NGXS or NGRX Store</mat-card-title
+              >
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>
+                  Manages rows array using state management (NGXS or NGRX)
+                </li>
+                <li>Provides selectors</li>
+                <li>
+                  Dispatches actions: Add, Update, Delete, Update Row Order
+                </li>
+                <li>Handles data updates and syncing between UI and state</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>Store Actions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>addRow (AddRow)</li>
+                <li>updateRow (UpdateRow)</li>
+                <li>deleteRow (DeleteRow)</li>
+                <li>updateRowOrder (Handle row order update)</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="arrow">&#8595;</div>
+
+        <div class="step">
+          <mat-card class="step-card">
+            <mat-card-header>
+              <mat-card-title>State Model</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <ul>
+                <li>Stores row data</li>
+                <li>Returns updated state after actions</li>
+              </ul>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

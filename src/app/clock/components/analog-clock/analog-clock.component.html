@@ -1,0 +1,14 @@
+<div *ngIf="countStarted" class="clock">
+  <div class="clock__wrap">
+    <div class="clock__numbers">
+      <span class="clock__number" *ngFor="let number of numbers; let i = index" 
+            [style.transform]="'rotate(' + ((i * 30) + 30) + 'deg) translateY(-150px) rotate(' + (330 - (i * 30)) + 'deg)'">
+        {{ number }}
+      </span>
+    </div>
+    <span class="clock__wrap-hour" [style.transform]="'rotate(' + hourRotation + 'deg)'"></span>
+    <span class="clock__wrap-minute" [style.transform]="'rotate(' + minuteRotation + 'deg)'"></span>
+    <span class="clock__wrap-second" [style.transform]="'rotate(' + secondRotation + 'deg)'"></span>
+    <span class="clock__wrap-dot"></span>
+  </div>
+</div>

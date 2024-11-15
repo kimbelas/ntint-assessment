@@ -1,0 +1,58 @@
+.settings-container {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: var(--primary-color-4);
+    color: var(--white-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+
+    &:hover {
+      color: var(--primary-color-2);
+    }
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    mat-icon {
+      transition: transform 0.2s ease;
+    }
+
+    &.increment:hover mat-icon {
+      animation: moveUpDown 0.5s infinite alternate;
+    }
+
+    &.decrement:hover mat-icon {
+      animation: moveDownUp 0.5s infinite alternate;
+    }
+  }
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDownUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px); /* Move the icon down */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

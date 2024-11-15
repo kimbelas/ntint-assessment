@@ -1,0 +1,95 @@
+.clock {
+  display: flex;
+  border-radius: 100%;
+  background: var(--primary-color-4);
+  font-family: "Montserrat";
+  border: 5px solid var(--primary-color-5);
+  box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+
+  &__wrap {
+    overflow: hidden;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+  }
+
+  &__wrap-hour,
+  &__wrap-minute,
+  &__wrap-second {
+    position: absolute;
+    margin: auto;
+    transform-origin: bottom center;
+    z-index: 1;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  &__wrap-hour {
+    height: 100px;
+    width: 6px;
+    top: -28%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--primary-color-3);
+    z-index: 3;
+  }
+
+  &__wrap-minute {
+    height: 130px;
+    width: 5px;
+    top: 13%;
+    left: 172px;
+    background: var(--primary-color-3);
+    z-index: 2;
+  }
+
+  &__wrap-second {
+    height: 90px;
+    width: 2px;
+    top: -26%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    background: #ff4b3e;
+    z-index: 1;
+  }
+
+  &__wrap-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: var(--primary-color-3);
+    border: 2px solid #1b1b1b;
+    margin: auto;
+    z-index: 1;
+  }
+
+  &__numbers {
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__number {
+    position: absolute;
+    font-size: 1.2rem;
+    color: var(--primary-color-3);
+    font-weight: bold;
+    transform-origin: center;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+  }
+}

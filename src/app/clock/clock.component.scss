@@ -1,0 +1,17 @@
+.d-flex {
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--primary-color-2);
+  overflow-y: hidden;
+
+  analog-clock,
+  digital-clock {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 940px) {
+    flex-direction: column !important;
+  }
+}

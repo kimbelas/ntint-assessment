@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="navbar__links">
+    <a mat-button routerLink="/clock">Clock</a>
+    <a mat-button routerLink="/table">Table</a>
+    <a mat-button routerLink="/design-procedures">Design Procedures</a>
+  </span>
+
+  <span class="navbar__menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/clock">Clock</button>
+    <button mat-menu-item routerLink="/table">Table</button>
+    <button mat-menu-item routerLink="/design-procedure">
+      Design Procedure
+    </button>
+  </mat-menu>
+</mat-toolbar>
