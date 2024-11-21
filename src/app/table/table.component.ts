@@ -19,6 +19,7 @@ import {
 import { TableState } from '../store/table/table.state';
 import { SharedModule } from '../shared/shared.module';
 import { stringValidator } from '../shared/utils';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'ntint-table',
@@ -34,6 +35,7 @@ export class TableComponent implements OnInit {
   rows$: Observable<any[]>;
   isEditing: boolean = false;
   deleteTriggered: boolean = false;
+  private title = 'Take home assignment - II';
 
   displayedColumns = [
     'rowNumber',
@@ -45,7 +47,12 @@ export class TableComponent implements OnInit {
   ];
   editingRowIndex: number | null = null;
 
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle(this.title);
     this.tableForm = this.fb.group({});
     this.rows$ = this.store.select(TableState.rows);
   }
