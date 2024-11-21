@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 })
 export class ClockComponent implements OnInit, OnDestroy {
   private title = 'Take home assignment - I';
-  public displayTime: Date = new Date();
+  private displayTime: Date = new Date();
   private timeSubscription: any;
 
   constructor(
